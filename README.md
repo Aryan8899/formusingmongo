@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Form Submission with Shadcn, Tailwind CSS, and MongoDB
+
+This project is a simple form submission application built using **Next.js**, **Shadcn UI components**, **Tailwind CSS** for styling, and **MongoDB** for the backend database. Users can submit their details (name and email), and the form data will be stored in a MongoDB database.
+
+## Features
+- Responsive form UI built with **Shadcn** components and **Tailwind CSS**.
+- Gradient background with smooth color transitions for a modern look.
+- Form submission with loading state and error handling.
+- Form data stored in **MongoDB** using Next.js API routes.
+- Toast notifications for successful or failed submissions.
+
+## Tech Stack
+
+- **Next.js** - React framework for server-side rendering and static site generation.
+- **Shadcn** - UI components library integrated with Tailwind CSS.
+- **Tailwind CSS** - Utility-first CSS framework for fast UI development.
+- **MongoDB** - NoSQL database used to store the form data.
+- **React Toastify** - Library for displaying notifications.
+
+## Prerequisites
+
+Before running the project, make sure you have the following tools installed:
+
+- [Node.js](https://nodejs.org/) (v14 or later)
+- [MongoDB](https://www.mongodb.com/) (Local or Cloud MongoDB instance)
 
 ## Getting Started
 
-First, run the development server:
-
+### 1. Clone the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-repo/next-shadcn-mongodb-form.git
+cd next-shadcn-mongodb-form
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Install Dependencies
+Make sure you're in the project directory and run the following command to install the necessary packages:
+```bash
+npm install
+```
+## Set Up Environment Variables
+Create a `.env.local` file at the root of the project and add your MongoDB URI:
+```bash
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/<dbname>?retryWrites=true&w=majority
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Run the Development Server
+To start the Next.js development server, run the following command:
+```bash
+npm run dev
+```
+This will start the application at`http://localhost:3000`
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## API Endpoints
+### POST /api/submit
+1) Description: Submits the form data (name and email) to MongoDB.
+ - Method: POST
+- Request Body:
+- name: string
+- email: string
+- Response:
+- Success: { success: true, data: ... }
+- Error: { success: false, message: ... }
 
-## Learn More
+## Troubleshooting
+### Common Issues
+1) MongoDB Connection Error: Ensure that your `MONGODB_URI` in the `.env.local` file is correct. You should use your MongoDB connection string from MongoDB Atlas or a local instance.
 
-To learn more about Next.js, take a look at the following resources:
+2) Module Not Found Errors: Make sure all required packages are installed by running `npm install` and verify that your import paths are correct.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Screenshot 
+![Project Screenshot](./Screenshot/pic2.png)
+![Project Screenshot](./Screenshot/pic3.png)
+![Project Screenshot](./Screenshot/pic1.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
